@@ -1,0 +1,132 @@
+/// BUILD GUIDE
+
+	- An interactive adult entertainment device and fitness tracker.  Measures a users position within the device and can transmit commands to connected devices via usb and bluetooth communication.  Use data is tracked as key presses for the keys on the device, converted into XP (eXperience Points), and can be saved over the life of the device.  Build experience, control other devices, and interact with media.
+// Parts List
+
+	1. 1 X Microcontroller board - LILYGO T-Display-S3 Non-Soldered Pin [H569] (no touch screen no soldered pin version) https://www.lilygo.cc/products/t-display-s3?variant=42284559827125
+	2. 1 X NeoKey 1x4 QT I2C - Four Mechanical Key Switches with NeoPixels - STEMMA QT / Qwiic (Product ID: 4980) https://www.adafruit.com/product/4980
+	3. 1 X Qwiic JST SH 4-pin Cable - 100mm Long https://www.adafruit.com/product/4210
+	4. 4 X Keycaps for MX Compatible Switches https://www.adafruit.com/product/5068
+	5. 4 X Cherry MX Style Key Switches - choose whatever kind you want - I recomend high quality, heavy actuation force, silent switches
+	6. 8 or 14 X M3 Heat Set Inserts (5.7mm x 4.6 mm dimensions) https://cnckitchen.store/products/gewindeeinsatz-threaded-insert-m3-standard-100-stk-pcs?_pos=2&_psq=m3&_ss=e&_v=1.0
+	7. 8 or 14 x M3 Socket Head Cap Screws 6mm - 16mm length depending on user configuration, get a set like https://www.amazon.com/HELIFOUNER-Screws-Washers-Kit-Stainless/dp/B0BMQ5Z96H
+	8. Print 3D printed parts depending on instructions below - should print with no supports, but depending on your printer *Core cutout overhang, spacer plate overhangs, and top plate usb cutout may come out better with support
+	9. USB-C cable to power electronics and transmit data to connected devices
+
+// Flashing Firmware
+
+	1. Download Flash Download Tools from ESPRESSIF @ https://www.espressif.com/en/support/download/other-tools
+	2. Run program
+	3. Select ChipType: ESP32-S3; WorkMode: Develop; LoadMode: UART; OK (pic firmware1)
+	4. Select firmware @ 0x0 (pic firmware2)
+	5. Connect board to computer, select COM port for the board
+	6. Press Start
+	7. When download panel shows FINISH (pic firmware3), press reset on the board to verify download, disconnect board and close program
+
+
+// Assemble Electronics Section
+
+	/ Printed Parts List:
+		1 X Top Plate
+		1 X Spacer Plate
+		1 X Key Plate
+		1 X Reset Button
+		2 X Nav Button
+
+	/ Instructions
+	1. Install 4 heat set inserts into top plate
+	2. Place the 2 nav buttons in top plate (pic electronics1)
+	3. Install T Display board into top plate, usb first, then snap board flush into plate (pic electronics2)
+	4. Install Neokey Board into the Key plate paying attention to orientation and plug QWIIC cable into highlighted socket (pic electronics3)
+	5. Place spacer plate over key plate, route cable and place nav button into spacer plate as shown in (pic electronics4)
+	6. Plug free end of QWIIC cable into T Display and align the electronics section as shown in (pic electronics5)
+	7. Flip electronics section over and screw the assembly together with 4 X 16mm M3 screws (pic electronics6)
+	8. Install key switches and keycaps (pic electronics7)
+	*Electronics housing is not waterproof - keep dry and use caution
+
+// Choose housing
+
+	There are 2 options for housings:
+	1. The quickest and easiest is the generic barrel (pic housing1) that only works with generic sleeves like (https://www.amazon.com/LeLuv-Penis-Magic-Sleeve-Pussy/dp/B0733J8QXR) and has limited adjustability (only key plate spacers), but only requires 1 3d printed part and 4 heat set inserts.
+	2. The other and best option is the modular system that works with the generic sleeves above and regular sized Fleshlights through adapters.  The fit can also be customized through stabilizer adapters. (pic housing2, housing3)
+
+// Assemble Berrel-Generic Housing
+
+	/ Printed Parts List:
+		1 X Barrel-Generic
+		*Optional - Key Plate Spacers for adjustment
+
+	1. Print barrelGeneric
+	2. Install 4 X Heat Set Inserts (pic housing1)
+	3. Install electronics section on housing, print and install Key Plate Spacers to adjust key position (pic housing4)
+
+// Assemble Modular System
+
+	/ Printed Parts List:
+		1 X Core
+		*Whatever adapters you want
+
+	/ Instructions
+	1. Print 1 X Core
+	2. Install 10 X Heat Set Inserts in holes around core (pic housing5)
+	
+	/ Adapters
+	1. Generic sleeves:
+		a.Print:
+			1 X Adapter Generic
+			1 X Retaining Ring
+			*Optional - Stabilizer for adjustment
+			*Optional - Key Plate Spacers for adjustment
+		b.Assembly (pic housing2), screw together
+
+
+	2. Fleshlight sleeves:
+		a. Choose size based on user and highlighted sensing reigon M or L (pic housing6)
+		a.Print:
+			Files in Adapters-(M or L)Fleshlight =
+			1 X Adapter Fleshlght
+			1 X Fleshlight End Piece
+			1 X Fleshlight End Cap
+			*Optional - Stabilizer for adjustment
+			*Optional - Key Plate Spacers for adjustment
+		b.Assembly (pic housing3), screw together (pic housing7)
+
+	/ Adjustment
+		Print and install stabilizers to support the sleeve and ensure engagement with the keys while the device is in operation.  This is based on the user, and the sleeve keys and keycaps. (pic adjustment1 and adjustment2)
+
+// Operation
+
+	* Use Navigation buttons to cycle through and select menu options
+	*Reset button restarts device
+	1. Main Menu (pic operation1):
+		-Session, Stats, Settings - navigate to other pages
+		-BLE Keyboard - Turn Bluetooth Keyboard mode on/ pause (to turn radio off after turning on, reset device)
+			-Pairs as "ID-01"
+			-Sends depth information as keypresses for depth as characters selected in settings
+		-USB Keyboard - Turn USB Keyboard mode on/ off
+			-Sends depth information as keypresses for depth as characters selected in settings
+		-Serial Depth Log - Turn on/ off serial depth log mode
+			-Sends depth information as an integer (0-4) to the usb connected device serial monitor
+		-Save - Save Session XP and key press counts, update totals, and resets session data to 0
+		-Saved XP and Total XP counter display
+
+	2. Session Screen (pic operation2):
+		-Main Menu - navigate to Main Menu
+		-Session XP counter display
+		-D1 - D4 - key press counters for depth 1 - 4 display
+	
+	3. Stats (pic operation3):
+		-Main Menu - navigate to Main Menu
+		-XP counters for current session, saved, and total XP (saved + session)
+		-Total key press counters (session + saved)
+
+	4. Settings (pic operation4):
+		-Main Menu - navigate to Main Menu
+		-D0 - D4 - select the characters sent for a depth reading
+			- 0 = no key pressed, 1-4 keys in increasing depth
+		-FGND - Select foreground/ text color
+		-BGND - Select background color
+		-LED Brightness - change brightness of key leds
+		-Color Mode - Select color mode of key leds
+		-C0 - C4 - Select colors for user programmable color modes
+		*To save changes select Save on Main Menu
