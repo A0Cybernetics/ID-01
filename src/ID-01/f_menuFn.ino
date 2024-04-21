@@ -602,7 +602,7 @@ void neokeyColorArr4OptionSelect() {
   drawMenuOptionSelected(menuOptionSelected);
 }
 
-/*
+
 menuOption neokeyKeysModeOption {
   1,
   neokeyKeysModeOptionText,
@@ -617,7 +617,7 @@ void neokeyKeysModeOptionSelect() {
   incNeokeyKeysMode();
   drawMenuOptionSelected(menuOptionSelected);
 }
-*/
+
 
 //////////////////////////////////////////
 ////// Draw and control menu pages ///////
@@ -655,8 +655,8 @@ menuPage menuPages[menuPagesSize] = {
     settingsDraw,
     settingsSelect,
     settingsSpecialFunction,
-    16,
-    {mainMenuOption, depthCharArr0Option, depthCharArr1Option, depthCharArr2Option, depthCharArr3Option, depthCharArr4Option, foregroundColorOption, backgroundColorOption, neokeyBrightnessOption, neokeyColorSlowOption, neokeyColorModeOption, neokeyColorArr0Option, neokeyColorArr1Option, neokeyColorArr2Option, neokeyColorArr3Option, neokeyColorArr4Option,},
+    17,
+    {mainMenuOption, neokeyKeysModeOption, depthCharArr0Option, depthCharArr1Option, depthCharArr2Option, depthCharArr3Option, depthCharArr4Option, foregroundColorOption, backgroundColorOption, neokeyBrightnessOption, neokeyColorSlowOption, neokeyColorModeOption, neokeyColorArr0Option, neokeyColorArr1Option, neokeyColorArr2Option, neokeyColorArr3Option, neokeyColorArr4Option,},
   },
   {
     "Session",
@@ -799,11 +799,14 @@ void incOptions() {
 	//Serial.println((String) "Menu Option Selected : " + menuOptionSelected);
 }
 
+/*
 void onboardButtonsMenu() {
 	onboardButtonsDT(incOptions, menuPages[menuPageSelected].optionsArr[menuOptionSelected].function);
 }
+*/
 
 void menuFn() {
-  onboardButtonsMenu();
+  //onboardButtonsMenu();
+  onboardButtonsDT(incOptions, menuPages[menuPageSelected].optionsArr[menuOptionSelected].function);
   menuPages[menuPageSelected].specialFunction();
 }

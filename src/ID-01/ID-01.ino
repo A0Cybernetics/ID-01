@@ -64,7 +64,7 @@ void setup() {
   //neokey Startup sequence
   neokeySetup();
 
-  //play startup tft animation
+  //play startup tft animation, random ~ 2-5 sec
   drawA0Animation(85, 159, 10);
 
   //start menu on a page.
@@ -80,7 +80,7 @@ void loop() {
   menuFn();
 }
 
-/*
+/* Serial Timer
 unsigned long startTime = 0;
 startTime = micros();
 Serial.println((String) (micros()-startTime));

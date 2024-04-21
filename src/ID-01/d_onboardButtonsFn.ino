@@ -1,8 +1,10 @@
+/*
   // read onboard buttons
 void onboardButtonPoll() {
   but1State = digitalRead(PIN_BUTTON_1);
   but2State = digitalRead(PIN_BUTTON_2);
 }
+*/
 
   // debounced and throttled onboard button fn accepts void functions for button actions
   // to use, use name with no (), void functions only
@@ -27,8 +29,10 @@ void onboardButtonPoll() {
   //SerialDepthToggle();
   */
 void onboardButtonsDT(void (*but1Action)(), void (*but2Action)()) {
-  onboardButtonPoll();  //checks onboard button states and updates
-  // button 1 actions
+    //onboardButtonPoll();  //checks onboard button states and updates
+  but1State = digitalRead(PIN_BUTTON_1);
+  but2State = digitalRead(PIN_BUTTON_2);
+    // button 1 actions
 	if (but1State != but1StateLast) {
     but1StateLast = but1State;
 		but1NextDebounceTime = millis() + butDebounceDelay;

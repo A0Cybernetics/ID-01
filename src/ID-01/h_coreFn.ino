@@ -1,9 +1,3 @@
-  // increment xp counters
-void incXP() {
-  sessionXP++;
-  totalXP++;
-}
-
   // load prefrences or initialize prefs and vars
 void loadPreferences() {
   preferences.begin("ID-01", false);
@@ -12,6 +6,7 @@ void loadPreferences() {
   keyCountSaved[1] = preferences.getUShort("K2", 0);
   keyCountSaved[2] = preferences.getUShort("K3", 0);
   keyCountSaved[3] = preferences.getUShort("K4", 0);
+  neokeyKeysMode = preferences.getUChar("KM", 0);
   depthCharArr[0] = preferences.getUChar("D0", 15);
   depthCharArr[1] = preferences.getUChar("D1", 16);
   depthCharArr[2] = preferences.getUChar("D2", 17);
@@ -22,11 +17,11 @@ void loadPreferences() {
   neokeyBrightness = preferences.getUChar("CB", 50);
   neokeyColorSlow = preferences.getUChar("CS", 15);
   neokeyColorMode = preferences.getUChar("CM", 16);
-  neokeyColorArr[0] = preferences.getUChar("C0", 31);
-  neokeyColorArr[1] = preferences.getUChar("C1", 31);
-  neokeyColorArr[2] = preferences.getUChar("C2", 112);
-  neokeyColorArr[3] = preferences.getUChar("C3", 95);
-  neokeyColorArr[4] = preferences.getUChar("C4", 66);
+  neokeyColorArr[0] = preferences.getUChar("C0", 113);
+  neokeyColorArr[1] = preferences.getUChar("C1", 113);
+  neokeyColorArr[2] = preferences.getUChar("C2", 76);
+  neokeyColorArr[3] = preferences.getUChar("C3", 9);
+  neokeyColorArr[4] = preferences.getUChar("C4", 112);
   preferences.end();
 
   foregroundColor = rgb16Color(colorArr[foregroundColorIndex]);
@@ -56,6 +51,7 @@ void savePreferences() {
   preferences.putUShort("K2", keyCountSaved[1]);
   preferences.putUShort("K3", keyCountSaved[2]);
   preferences.putUShort("K4", keyCountSaved[3]);
+  preferences.putUChar("KM", neokeyKeysMode);
   preferences.putUChar("D0", depthCharArr[0]);
   preferences.putUChar("D1", depthCharArr[1]);
   preferences.putUChar("D2", depthCharArr[2]);

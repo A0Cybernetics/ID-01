@@ -61,6 +61,7 @@ void incNeokeyColorArr0() {
   }
   keyRGB32BrightColorArr[0] = rgb32BrightColor(colorArr[neokeyColorArr[0]], neokeyBrightness);
   //Serial.println(colorArr[neokeyColorArr[0]].name);
+  standbyColorFlag = 0;
 }
 
   //cycle through colors for neokeyColorArr[1]
@@ -72,6 +73,7 @@ void incNeokeyColorArr1() {
     neokeyColorArr[1] = 0;
   }
   keyRGB32BrightColorArr[1] = rgb32BrightColor(colorArr[neokeyColorArr[1]], neokeyBrightness);
+  standbyColorFlag = 0;
 }
 
   //cycle through colors for neokeyColorArr[2]
@@ -83,6 +85,7 @@ void incNeokeyColorArr2() {
     neokeyColorArr[2] = 0;
   }
   keyRGB32BrightColorArr[2] = rgb32BrightColor(colorArr[neokeyColorArr[2]], neokeyBrightness);
+  standbyColorFlag = 0;
 }
 
   //cycle through colors for neokeyColorArr[3]
@@ -94,6 +97,7 @@ void incNeokeyColorArr3() {
     neokeyColorArr[3] = 0;
   }
   keyRGB32BrightColorArr[3] = rgb32BrightColor(colorArr[neokeyColorArr[3]], neokeyBrightness);
+  standbyColorFlag = 0;
 }
 
   //cycle through colors for neokeyColorArr[4]
@@ -105,6 +109,7 @@ void incNeokeyColorArr4() {
     neokeyColorArr[4] = 0;
   }
   keyRGB32BrightColorArr[4] = rgb32BrightColor(colorArr[neokeyColorArr[4]], neokeyBrightness);
+  standbyColorFlag = 0;
 }
 
   //cycle neokeyColorSlow

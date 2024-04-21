@@ -154,7 +154,7 @@ color colorArr[colorArrSize] = {
   //stores indexes of colorArray  raw color structs for key colors
   //0 for solid colors, 1-4 for individual key colors
 const uint8_t neokeyColorArrSize = 5;
-uint8_t neokeyColorArr[neokeyColorArrSize] = {31, 31, 112, 95, 66};
+uint8_t neokeyColorArr[neokeyColorArrSize] = {113, 113, 76, 9, 112};  //76 lime 113 red 9 blue 112 purple
   //stores colors from keyColorArray converted to 32bit colors for neokey initialized in startupNeokey
   //updateKeyRGB32Bright(brightness) converts key color array to 32bit color array adjusted for 0-100 brightness
 uint32_t keyRGB32BrightColorArr[neokeyColorArrSize] = {};
@@ -165,15 +165,15 @@ uint16_t numKeys = 4;   //  stores number of neopixels / buttons should be 4 aft
   //store ascii char that can be sent from keyboard 0-94 printed on display for select menu
   //i94= space, i95 = KEY_RIGHT_ARROW, i96 = KEY_LEFT_ARROW, i97= KEY_DOWN_ARROW, i98 = KEY_UP_ARROW
 const uint8_t asciiCharArrSize = 99;
-const char asciiCharArr[asciiCharArrSize]= {'!','\"','#','$','%','&','\'','(',')','*','+',',','-','.','/','0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?','@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_','`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','{','|','}','~',' ',0xD7,0xD8,0xD9,0xDA};
+const char asciiCharArr[asciiCharArrSize]= {'!','\"','#','$','%','&','\'','(',')','*','+',',','-','.','/','0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?','@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_','`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','{','|','}','~',' ',0xD7/*215right*/,0xD8/*216left*/,0xD9/*217down*/,0xDA/*218up*/};
   //store selected chars for 0 - 4 depth/keys
 uint8_t depthCharArr[5] = {93, 93, 93, 93, 93}; //{15, 16, 17, 18, 19}; //array storing char sent for 0 depth (0) and keys (1-4) /depth 1-4
 
-/*
+
 uint8_t neokeyKeysMode = 0;           //switch in neokeyKeysFn changes neokeyKeys function based on this as index of names in neokeyKeysModes array
 const uint8_t keysModesArraySize = 2; //sets size of  inc neokey keys modes max
-const char *neokeyKeysModes[keysModesArraySize] = {"Write", "All"}; //stores names of modes
-*/
+const char *neokeyKeysModes[keysModesArraySize] = {"StepMania", "Write"}; //stores names of modes
+
 
 uint8_t keys = 0;         //  stores new value of neokey keys
 uint8_t keysLast = 0;     //  stores last value of neokey keys for edge detection

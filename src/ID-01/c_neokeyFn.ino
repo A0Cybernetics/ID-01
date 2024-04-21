@@ -11,7 +11,7 @@ void neokeySetup() {
     delay(500);
     tft.fillScreen(backgroundColor);
   }
-  //get # of neopixels/ keys
+  //get # of neopixels/ keys should be 4
   numKeys = Neokey.pixels.numPixels();
   //setsup color array based on initial conditions
   updateKeyRGB32Bright(neokeyBrightness);
@@ -25,8 +25,12 @@ void neokeySetup() {
   //only need to call this to run neokey after neokeySetup
 void neokeyFn() {
   neokeySetKeysDepth();     //gets new raw key reading formats it and sets new depth
-  neokeyKeysWrite();        //write key on keypress
-  //neokeyKeysFn();          //perform key actions based on neokeyKeyMode and neokeyCharArr
+  if (depthChangeFlag) {
+    if (neokeyKeysMode == 0) {neokeyKeysStepMania();}   //mode for stepmania
+    else if (neokeyKeysMode == 1) {neokeyKeysWrite();}  //write key on keypress
+    if (SerialDepthState) {Serial.println((String) depth);} //
+  }
+    //neokeyKeysFn();         //perform key actions based on neokeyKeyMode and neokeyCharArr
   neokeyColorFn();          //set neopixel color based on neokeyColorMode and neokeyColorArr
 }
 
@@ -70,32 +74,61 @@ void neokeySetKeysDepth() {
   depthChangeFlag = (depth != depthLast);
 }
 
+
+
+  //key press and release actions one key pressed at a time, keys 1-4
+void neokeyKeysStepMania() {
+	if (depthLast != 0) {
+		if (USBKeyboardState) {
+			USBKeyboard.release(asciiCharArr[depthCharArr[depthLast]]);
+		}
+		if (BLEKeyboardState) {
+			BLEKeyboard.release(asciiCharArr[depthCharArr[depthLast]]);
+		}
+	}
+	if (depth != 0) {
+		if (USBKeyboardState) {
+			USBKeyboard.press(asciiCharArr[depthCharArr[depth]]);
+		}
+		if (BLEKeyboardState) {
+			BLEKeyboard.press(asciiCharArr[depthCharArr[depth]]);
+		}
+    keyCountSession[depth-1]++; //increment key count
+    keyCountTotal[depth-1]++; //increment total key count
+    sessionXP++;  //increment xp
+    totalXP++;
+	}
+}
+
+  //key write actions on depth change 5 depths, 0 and keys 1-4
+void neokeyKeysWrite() {
+  if (USBKeyboardState) {
+    USBKeyboard.write(asciiCharArr[depthCharArr[depth]]);
+  }
+  if (BLEKeyboardState) {
+    BLEKeyboard.write(asciiCharArr[depthCharArr[depth]]);
+  }
+  if (depth != 0) {
+    keyCountSession[depth-1]++; //increment key count
+    keyCountTotal[depth-1]++; //increment total key count
+    sessionXP++;  //increment xp
+    totalXP++;
+  }
+}
+
+/*
   // increment key counts
 void incKeyCount() {
   keyCountSession[depth-1]++; //increment key count
   keyCountTotal[depth-1]++; //increment total key count
 }
 
-  //key write actions on depth changed
-void neokeyKeysWrite() {
-  if (depthChangeFlag) {
-    if (USBKeyboardState) {
-      USBKeyboard.write(asciiCharArr[depthCharArr[depth]]);
-    }
-    if (BLEKeyboardState) {
-      BLEKeyboard.write(asciiCharArr[depthCharArr[depth]]);
-    }
-    if (SerialDepthState) {
-	    Serial.println((String) depth);
-    }
-    if (depth != 0) {
-      incKeyCount();
-      incXP();
-    }
-  }
+  // increment xp counters
+void incXP() {
+  sessionXP++;
+  totalXP++;
 }
 
-/*
   //calls neokeyKeys function based on NeokeyKeysMode
 void neokeyKeysFn() {
   switch (neokeyKeysMode){
@@ -129,15 +162,15 @@ void neokeyKeysAll() {
 
   //Velocity
 unsigned long keyDistance = 1875;   //18.75mm => will /100
-unsigned long vTime = ;   //time in ms between this keypress and last key press
-long velocity = ;   //velocity of user as mm/ms + going deeper, - retracting
+unsigned long vTime = 0;   //time in ms between this keypress and last key press
+long velocity = 0;   //velocity of user as mm/ms + going deeper, - retracting
 void velocity() {
   if (depthChangeFlag) {
-    if (depthLast>0) {
+    if (depthLast>0 && depthLas<4) {
       velocity = ((depth-depthLast)*keyDistance)/(time*100);
     }
     else {
-      //unsure of distance if depthLast is 0
+      //unsure of distance if depthLast is 0 or 4
     }
   }
 }
@@ -221,7 +254,6 @@ void incDepthCharArr4() {
   }
 }
 
-/*
   //increment through neokey keys modes
 void incNeokeyKeysMode() {
   if (neokeyKeysMode < keysModesArraySize-1) {
@@ -232,7 +264,6 @@ void incNeokeyKeysMode() {
   }
   //Serial.println((String) "Neokey Keys Mode : " + neokeyKeysModes[neokeyKeysMode]);
 }
-*/
 
 //////////////////////////////////////////
 ////////// neokeyColorFunctions //////////
@@ -838,7 +869,7 @@ void incNeokeyBrightness() {
   //inc/dec brightness for breathe fns
 void neokeyCycleBreatheBrightness() {
     if (breatheFlag == 0) {
-    	// decrement brightness to fade
+    	  //decrement brightness to dim
       neokeyBrightnessBreathe --;
       if (neokeyBrightnessBreathe == neokeyBrightnessMin) {
         breatheFlag = 1;
