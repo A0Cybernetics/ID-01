@@ -1,5 +1,5 @@
 # A0 Cybernetics ID-01
-![Flesh1ight Style Housing](/Documents/READMEPics/housing1.jpg "Flesh1ight Style Housing") ![Depth Sensing In Action](/Documents/READMEPics/depthSensing.gif "Depth Sensing In Action") ![Generic Style Housing](/Documents/READMEPics/housing2.jpg "Generic Style Housing")
+<img src="/Documents/READMEPics/housing1.jpg" alt="Flesh1ight Style Housing" width=30%><img src="/Documents/READMEPics/depthSensing.gif" alt="Depth Sensing In Action" width=40%><img src="/Documents/READMEPics/housing2.jpg" alt="Generic Style Housing" width=30%>
 
 An interactive adult entertainment device and fitness tracker.  Measures a users position within the device and can transmit commands to connected devices via usb and bluetooth communication.  Use data is tracked as key presses for the keys on the device, converted into XP (eXperience Points), and can be saved over the life of the device.  Build experience, control other devices, and interact with media.
 
