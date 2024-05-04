@@ -1,12 +1,25 @@
 # A0 Cybernetics ID-01
+![Flesh1ight Style Housing](/Documents/READMEPics/housing1.jpg "Flesh1ight Style Housing") ![Depth Sensing In Action](/Documents/READMEPics/depthSensing.gif "Depth Sensing In Action") ![Generic Style Housing](/Documents/READMEPics/housing2.jpg "Generic Style Housing")
 
 An interactive adult entertainment device and fitness tracker.  Measures a users position within the device and can transmit commands to connected devices via usb and bluetooth communication.  Use data is tracked as key presses for the keys on the device, converted into XP (eXperience Points), and can be saved over the life of the device.  Build experience, control other devices, and interact with media.
 
-- Read the build guide for parts list and full instructions
+- Free and open source.  I do this because I like it <3
+
+- Uses hot swappable Cherry MK style keyboard keys for extensive user customization options
+
+- Onboard TFT screen with extensive options user customization options
+
+- No programming or design knowledge necessary to build
+
+- Open source and reprogrammable firmware running on ESP32-S3
+
+- Compiled binary files provided so there is no need to compile the program
 
 - Fully 3D Printed parts (except for electrical components, heat set inserts and screws)
 
-- Open source and reprogrammable firmware running on ESP32-S3
+- Multiple designs and customized pieces are provided to accomodate sleeves from Flesh1ight and other more affordable options
+
+- Read the build guide for parts list and fully detailed step by step instructions
 
 ## Project OutFox / StepMania Compatibility
 
