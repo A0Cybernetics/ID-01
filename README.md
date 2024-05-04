@@ -1,5 +1,5 @@
-# A0 Cybernetics ID-01
-<img src="/Documents/READMEPics/housing1.jpg" alt="Flesh1ight Style Housing" width=30%><img src="/Documents/READMEPics/depthSensing.gif" alt="Depth Sensing In Action" width=40%><img src="/Documents/READMEPics/housing2.jpg" alt="Generic Style Housing" width=30%>
+# A0 Cybernetics: ID-01
+<img src="/Documents/READMEPics/led.jpg" alt="LEDs" width=25%><img src="/Documents/READMEPics/depthSensing.gif" alt="Depth Sensing In Action" width=75%>
 
 An interactive adult entertainment device and fitness tracker.  Measures a users position within the device and can transmit commands to connected devices via usb and bluetooth communication.  Use data is tracked as key presses for the keys on the device, converted into XP (eXperience Points), and can be saved over the life of the device.  Build experience, control other devices, and interact with media.
 
@@ -20,6 +20,8 @@ An interactive adult entertainment device and fitness tracker.  Measures a users
 - Multiple designs and customized pieces are provided to accomodate sleeves from Flesh1ight and other more affordable options
 
 - Read the build guide for parts list and fully detailed step by step instructions
+
+<img src="/Documents/READMEPics/housing1.jpg" alt="Flesh1ight Style Housing" width=51%><img src="/Documents/READMEPics/housing2.jpg" alt="Generic Style Housing" width=49%>
 
 ## Project OutFox / StepMania Compatibility
 
