@@ -1,13 +1,17 @@
 # A0 Cybernetics: ID-01
-<img src="/Documents/READMEPics/led.jpg" alt="LEDs" width=25%><img src="/Documents/READMEPics/depthSensing.gif" alt="Depth Sensing In Action" width=75%>
+<img src="/Documents/READMEPics/led.gif" alt="LEDs" width=25%><img src="/Documents/READMEPics/depthSensing.gif" alt="Depth Sensing In Action" width=75%>
 
-An interactive adult entertainment device and fitness tracker.  Measures a users position within the device and can transmit commands to connected devices via usb and bluetooth communication.  Use data is tracked as key presses for the keys on the device, converted into XP (eXperience Points), and can be saved over the life of the device.  Build experience, control other devices, and interact with media.
+An interactive adult entertainment device and fitness tracker.  Measures a users position within the device and can transmit commands to connected devices via USB and/ or Bluetooth communication.  Use data is tracked as key presses for the keys on the device, converted into XP (eXperience Points), and can be saved over the life of the device.  Build experience, control other devices, and interact with media.
 
 - Free and open source.  I do this because I like it <3
 
-- Uses hot swappable Cherry MK style keyboard keys for extensive user customization options
+- Onboard TFT screen with UI
 
-- Onboard TFT screen with extensive options user customization options
+- Play any game, each key can be mapped to 99 different ASCII characters in the settings
+
+- 21 user customizable led lighting modes
+
+- Hot-swappable Cherry MK style keyboard keys for user customization
 
 - No programming or design knowledge necessary to build
 
@@ -17,7 +21,7 @@ An interactive adult entertainment device and fitness tracker.  Measures a users
 
 - Fully 3D Printed parts (except for electrical components, heat set inserts and screws)
 
-- Multiple designs and customized pieces are provided to accomodate sleeves from Flesh1ight and other more affordable options
+- Multiple designs and customization pieces are provided to accomodate sleeves from Flesh1ight and other more affordable options
 
 - Read the build guide for parts list and fully detailed step by step instructions
 
@@ -33,7 +37,7 @@ Play rhythm games with your sex toy. Insert to different depths to hit notes in 
 
 To use this as a controller to play Stepmania:
 - On device:
-	- In Setting ensure that key mode is set to StepMania (is default)
+	- In Setting ensure that key mode is set to StepMania (is the default in firmware)
 	- On Main Menu turn on BLE or USB Keyboard and connect to computer
 
 - In Stepmania:
